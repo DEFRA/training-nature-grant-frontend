@@ -1,0 +1,6 @@
+version: '3.8'
+
+services:
+  training-nature-grant-frontend:
+    command: >
+      sh -c "npm run test:watch"

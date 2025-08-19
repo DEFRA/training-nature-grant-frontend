@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  training-nature-grant-frontend:
+    build:
+      context: .
+      target: production
+    image: training-nature-grant-frontend
+    container_name: training-nature-grant-frontend
+    environment: {}
