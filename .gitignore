@@ -13,6 +13,7 @@ helm/**/*.lock
 .env
 dist/
 html-reports
+.tmp/
 
 # Generated views
 _layout.html

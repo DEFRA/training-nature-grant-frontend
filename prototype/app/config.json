@@ -1,0 +1,8 @@
+{
+  "serviceName": "Apply for a nature grant",  
+  "plugins": {
+    "govuk-frontend": {
+      "rebrand": true
+    }
+  }
+}
