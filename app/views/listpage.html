@@ -1,0 +1,82 @@
+{% extends "two-thirds.html" %}
+
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/task-list/macro.njk" import govukTaskList %}
+
+
+{% block twoThirds %}
+<div id="list-page">
+  <h1 class="govuk-heading-l">{{serviceName}}</h1>
+
+  <p class="govuk-body">
+   This is the list page
+  </p>
+ 
+  {{ govukTaskList({
+    idPrefix: "company-details",
+    items: [
+      {
+        title: {
+          text: "Company Directors"
+        },
+        href: "#",
+        status: {
+          text: "Completed"
+        }
+      },
+      {
+        title: {
+          text: "Registered company details"
+        },
+        href: "#",
+        status: {
+          tag: {
+            text: "Incomplete",
+            classes: "govuk-tag--blue"
+          }
+        }
+      },
+      {
+        title: {
+          text: "Financial history"
+        },
+        hint: {
+          text: "Include 5 years of the company’s relevant financial information"
+        },
+        href: "#",
+        status: {
+          tag: {
+            text: "Incomplete",
+            classes: "govuk-tag--blue"
+          }
+        }
+      },
+      {
+        title: {
+          text: "Business plan"
+        },
+        href: "#",
+        status: {
+          tag: {
+            text: "Incomplete",
+            classes: "govuk-tag--blue"
+          }
+        }
+      },
+      {
+        title: {
+          text: "References"
+        },
+        href: "#",
+        status: {
+          tag: {
+            text: "Incomplete",
+            classes: "govuk-tag--blue"
+          }
+        }
+      }
+    ]
+  }) }}
+</div>
+{% endblock %}

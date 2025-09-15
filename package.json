@@ -32,7 +32,6 @@
   "devDependencies": {
     "@babel/preset-env": "^7.27.2",
     "@hapi/catbox-memory": "^5.0.1",
-    "@pact-foundation/pact": "^9.16.4",
     "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^5.2.5",
     "file-loader": "^6.2.0",

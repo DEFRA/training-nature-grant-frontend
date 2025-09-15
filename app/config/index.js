@@ -28,7 +28,7 @@ value.isDev = value.env === 'development'
 value.isTest = value.env === 'test'
 value.isProd = value.env === 'production'
 
-value.serviceName = 'TEST SERVICE'
+value.serviceName = 'Apply for a Nature Grant'
 value.defaultPageTitle = `${value.serviceName} - GOV.UK`
 
 module.exports = value
