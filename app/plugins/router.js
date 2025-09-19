@@ -1,5 +1,5 @@
-const routes = [].concat(
-  require('../routes/home'),
+const routes = [].concat(  
+  require('../routes/start'),
   require('../routes/static')
 )
 
