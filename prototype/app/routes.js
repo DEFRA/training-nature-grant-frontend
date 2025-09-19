@@ -8,9 +8,9 @@ const router = govukPrototypeKit.requests.setupRouter()
 
 // Add your routes here
 
-router.post('/nature-v1/main-applicant', function(request, response) {
+router.post('/nature-v1/main-applicant', function (request, response) {
   console.log('IN MAIN-APPLICANT')
   console.log(request.session.data)
-    
-  response.redirect("/nature-v1/task-list")
+
+  response.redirect('/nature-v1/task-list')
 })
