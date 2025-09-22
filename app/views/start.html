@@ -1,5 +1,4 @@
 {% extends "two-thirds.html" %}
-
 {% from "govuk/components/input/macro.njk" import govukInput %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
 
@@ -8,13 +7,13 @@
   <h1 class="govuk-heading-l">{{serviceName}}</h1>
 
   <p class="govuk-body">
-    Test service.
+   Apply for a nature grant
   </p>
 
   {{ govukButton({
-    classes: "govuk-!-margin-top-2 govuk-!-margin-bottom-8",
-    href: "/",
-    text: "Continue"
+    text: "Start now",
+    href: "#",
+    isStartButton: true
   }) }}
 
 </div>

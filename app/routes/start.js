@@ -1,9 +1,9 @@
 module.exports = {
   method: 'GET',
-  path: '/',
+  path: '/start',
   handler: {
     view: {
-      template: 'home',
+      template: 'start',
       context: { noIndex: false }
     }
   }
