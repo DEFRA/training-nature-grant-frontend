@@ -1,4 +1,4 @@
-const routes = [].concat(  
+const routes = [].concat(
   require('../routes/start'),
   require('../routes/static')
 )
