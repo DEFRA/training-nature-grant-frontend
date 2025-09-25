@@ -1,0 +1,31 @@
+{% extends "two-thirds.html" %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/task-list/macro.njk" import govukTaskList %}
+
+{% block twoThirds %}
+<div id="task-list">
+  <h1 class="govuk-heading-l">{{serviceName}}</h1>
+
+  <p class="govuk-body">
+    Task-List
+  </p>
+  {{ govukTaskList({
+    idPrefix: "company-details",         
+    items: [
+      {
+        title: {
+          text: "References"
+        },
+        href: "#",
+        status: {
+          tag: {
+            text: "Incomplete",
+            classes: "govuk-tag--blue"
+          }
+        }
+      }
+    ]
+  }) }}
+</div>
+{% endblock %}
