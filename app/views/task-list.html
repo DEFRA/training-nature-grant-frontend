@@ -11,8 +11,56 @@
     Task-List
   </p>
   {{ govukTaskList({
-    idPrefix: "company-details",         
+    idPrefix: "company-details",
     items: [
+      {
+        title: {
+          text: "Company Directors"
+        },
+        href: "#",
+        status: {
+          text: "Completed"
+        }
+      },
+      {
+        title: {
+          text: "Registered company details"
+        },
+        href: "#",
+        status: {
+          tag: {
+            text: "Incomplete",
+            classes: "govuk-tag--blue"
+          }
+        }
+      },
+      {
+        title: {
+          text: "Financial history"
+        },
+        hint: {
+          text: "Include 5 years of the company’s relevant financial information"
+        },
+        href: "#",
+        status: {
+          tag: {
+            text: "Incomplete",
+            classes: "govuk-tag--blue"
+          }
+        }
+      },
+      {
+        title: {
+          text: "Business plan"
+        },
+        href: "#",
+        status: {
+          tag: {
+            text: "Incomplete",
+            classes: "govuk-tag--blue"
+          }
+        }
+      },
       {
         title: {
           text: "References"
@@ -27,5 +75,19 @@
       }
     ]
   }) }}
+  
+  <form id ="tasklistApply"  method="post" action="/task-list" novalidate="novalidate" onclick="showMessage()">
+    {{ govukButton({
+      text: "Apply" 
+    }) }}
+  </form>
+  <p id="message"></p>
 </div>
+
+<script>
+  function showMessage() {
+    document.getElementById("message").textContent = "Apply button was clicked!";
+  }
+</script>
 {% endblock %}
+
