@@ -11,10 +11,10 @@ describe('start test', () => {
     await server.initialize()
   })
 
-  test('GET /start returns 200', async () => {
+  test('GET /task-list returns 200', async () => {
     const options = {
       method: 'GET',
-      url: '/start'
+      url: '/task-list'
     }
     const response = await server.inject(options)
     expect(response.statusCode).toBe(200)
