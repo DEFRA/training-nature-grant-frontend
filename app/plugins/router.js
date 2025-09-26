@@ -1,6 +1,7 @@
 const routes = [].concat(
   require('../routes/start'),
   require('../routes/task-list'),
+  require('../routes/example'),
   require('../routes/static')
 )
 
