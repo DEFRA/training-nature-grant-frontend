@@ -26,6 +26,8 @@ module.exports = {
             message: response.message
           })
 
+          console.log(response)
+
           // The return the `500` view
           return h.view('500').code(statusCode)
         }
