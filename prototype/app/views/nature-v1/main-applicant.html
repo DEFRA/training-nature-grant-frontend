@@ -17,16 +17,34 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        Test 123
+        Main applicant details
       </h1>
 
       <form class="form" action="/nature-v1/main-applicant" method="post">
 
-        <p>
-          [Insert question content here - see the
-          <a href="https://design-system.service.gov.uk">GOV.UK Design System</a>
-          for examples]
-        </p>
+        {{ govukInput({
+          label: {
+            text: "First name"
+          },
+          id: "first-name",
+          name: "firstName"
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Family name"
+          },
+          id: "family-name",
+          name: "familyName"
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Email address"
+          },
+          id: "email-address",
+          name: "emailAddress"
+        }) }}
 
         {{ govukButton({
           text: "Continue",

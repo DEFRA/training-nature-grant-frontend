@@ -1,16 +1,39 @@
 {% extends "two-thirds.html" %}
 {% from "govuk/components/input/macro.njk" import govukInput %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
 
 {% block twoThirds %}
 <div id="home-page">
+  {% if errorMessage %} 
+    {{ govukErrorSummary({
+      titleText: "There is a problem",
+      errorList: [
+        {
+          text: errorMessage.text,
+          href: "#input-id"
+        }
+      ]
+    }) }}
+  {% endif %} 
+
   <h1 class="govuk-heading-l">An example page</h1>
 
   <p class="govuk-body">{{ myValue }}</p>
 
   <form method="post" action="/example" novalidate="novalidate">
+    {{ govukInput({
+      label: {
+        text: "Example input"
+      },
+      id: "input-id",
+      name: "inputValue",
+      value: inputValue,
+      errorMessage: errorMessage
+    }) }}
+
     {{ govukButton({
-      text: "Post" 
+      text: "Continue" 
     }) }}
   </form>
 
