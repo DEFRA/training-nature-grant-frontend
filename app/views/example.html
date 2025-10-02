@@ -11,7 +11,7 @@
       errorList: [
         {
           text: errorMessage.text,
-          href: "#input-id"
+          href: "#" + errorMessage.id
         }
       ]
     }) }}
@@ -26,10 +26,20 @@
       label: {
         text: "Example input"
       },
-      id: "input-id",
+      id: "inputValue",
       name: "inputValue",
       value: inputValue,
-      errorMessage: errorMessage
+      errorMessage: errorMessage if errorMessage.id == "inputValue"
+    }) }}
+
+    {{ govukInput({
+      label: {
+        text: "Example input2"
+      },
+      id: "inputValue2",
+      name: "inputValue2",
+      value: inputValue2,
+      errorMessage: errorMessage if errorMessage.id == "inputValue2"
     }) }}
 
     {{ govukButton({
