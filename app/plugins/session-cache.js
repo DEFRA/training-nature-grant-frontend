@@ -6,7 +6,7 @@ module.exports = {
     maxCookieSize: 4000,
     cookieOptions: {
       password: config.cookiePassword,
-      isSecure: config.cookieOptions.isSecure
+      isSecure: config.cookieIsSecure
     }
   }
 }

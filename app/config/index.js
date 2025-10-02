@@ -2,12 +2,16 @@ const Joi = require('joi')
 
 const schema = Joi.object({
   port: Joi.number().default(3000),
-  env: Joi.string().valid('development', 'test', 'production').default('development')
+  env: Joi.string().valid('development', 'test', 'production').default('development'),
+  cookiePassword: Joi.string().min(32).required(),
+  cookieIsSecure: Joi.boolean().default(true)
 })
 
 const config = {
   port: process.env.PORT,
-  env: process.env.NODE_ENV
+  env: process.env.NODE_ENV,
+  cookiePassword: 'thisisanexampleandmustbechangedforproduction',
+  cookieIsSecure: true
 }
 
 // Validate config
