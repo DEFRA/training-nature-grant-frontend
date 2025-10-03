@@ -1,42 +1,63 @@
 {% extends "two-thirds.html" %}
 {% from "govuk/components/input/macro.njk" import govukInput %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
 
 {% block twoThirds %}
 <div id="task-list">
-  <h1 class="govuk-heading-l">{{serviceName}}</h1>
-
-  <p class="govuk-body">
-    Main Applicant Details
-  </p>
-  {{ govukInput({
-    label: {
-      text: "First name"
-    },
-    classes: "govuk-input--width-20",
-    id: "firstName",
-    name: "firstName"
+  {% if errorMessage %} 
+    {{ govukErrorSummary({
+      titleText: "There is a problem",
+      errorList: [
+        {
+          id:errorMessage.id,
+          text: errorMessage.text,
+          href: "#" + errorMessage.id
+        }
+      ]
+    }) }}
+  {% endif %} 
+  {{ govukBackLink({
+    text: "Back",
+    href: "/task-list"
   }) }}
+  <h1 class="govuk-heading-l">Main Applicant Details</h1>
 
-  {{ govukInput({
-    label: {
-      text: "Family name"
-    },
-    classes: "govuk-input--width-20",
-    id: "familyName",
-    name: "familyName"
-  }) }}
+  <form id ="continue"  method="post" action="/applicant-details" novalidate="novalidate">
+    {{ govukInput({
+      label: {
+        text: "First name"
+      },
+      id: "firstName",
+      name: "firstName",
+      value: firstName,      
+      errorMessage: errorMessage if errorMessage.id == "firstName"
+    }) }}
 
-  {{ govukInput({
-    label: {
-      text: "Email address"
-    },
-    classes: "govuk-input--width-20",
-    id: "email",
-    name: "email"
-  }) }}
+    {{ govukInput({
+      label: {
+        text: "Family name"
+      },
+      classes: "govuk-input--width-20",
+      id: "familyName",
+      name: "familyName",
+      value:familyName,    
+      errorMessage: errorMessage if errorMessage.id == "familyName"
+    }) }}
+  
+    {{ govukInput({
+      label: {
+        text: "Email address"
+      },
+      classes: "govuk-input--width-20",
+      id: "email",
+      name: "email",
+      value:email,      
+      errorMessage: errorMessage if errorMessage.id == "email"
+    }) }} 
+ 
 
-  <form id ="continue"  method="post" action="/task-list">
     {{ govukButton({
       text: "Continue" 
     }) }}
