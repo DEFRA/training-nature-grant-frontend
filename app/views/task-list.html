@@ -6,18 +6,17 @@
 {% block twoThirds %}
 <div id="task-list">
   <h1 class="govuk-heading-l">{{serviceName}}</h1>
-
   <p class="govuk-body">
     Task-List
   </p>
   {{ govukTaskList({
-    idPrefix: "company-details",
+    idPrefix: "applicant-details",
     items: [
       {
         title: {
-          text: "Company Directors"
+          text: "Applicant Details"
         },
-        href: "#",
+        href: "/applicant-details",
         status: {
           text: "Completed"
         }
@@ -76,18 +75,11 @@
     ]
   }) }}
   
-  <form id ="tasklistApply"  method="post" action="/task-list" novalidate="novalidate" onclick="showMessage()">
+  <form id ="tasklistApply"  method="post" action="/task-list" novalidate="novalidate">
     {{ govukButton({
       text: "Apply" 
     }) }}
-  </form>
-  <p id="message"></p>
+  </form>  
 </div>
-
-<script>
-  function showMessage() {
-    document.getElementById("message").textContent = "Apply button was clicked!";
-  }
-</script>
 {% endblock %}
 
