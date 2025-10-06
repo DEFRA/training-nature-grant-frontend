@@ -5,7 +5,7 @@
 {% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
 
 {% block twoThirds %}
-<div id="task-list">
+<div id="task-list">  
   {% if errorMessage %} 
     {{ govukErrorSummary({
       titleText: "There is a problem",
@@ -19,12 +19,12 @@
     }) }}
   {% endif %} 
   {{ govukBackLink({
-    text: "Back",
+    text: "Back",    
     href: "/task-list"
   }) }}
   <h1 class="govuk-heading-l">Main Applicant Details</h1>
 
-  <form id ="continue"  method="post" action="/applicant-details" novalidate="novalidate">
+  <form id ="continue"  method="post"  novalidate="novalidate">
     {{ govukInput({
       label: {
         text: "First name"
@@ -56,9 +56,7 @@
       value:email,      
       errorMessage: errorMessage if errorMessage.id == "email"
     }) }} 
- 
-
-    {{ govukButton({
+       {{ govukButton({
       text: "Continue" 
     }) }}
   </form>  

@@ -4,12 +4,12 @@
 {% from "govuk/components/task-list/macro.njk" import govukTaskList %}
 
 {% block twoThirds %}
-<div id="task-list">
+<div id="task-list">  
   <h1 class="govuk-heading-l">{{serviceName}}</h1>
   <p class="govuk-body">
     Task-List
-  </p>
-  {{ govukTaskList({
+  </p>   
+{{ govukTaskList({
     idPrefix: "applicant-details",
     items: [
       {
@@ -17,8 +17,9 @@
           text: "Applicant Details"
         },
         href: "/applicant-details",
-        status: {
-          text: "Completed"
+        
+        status: {             
+          text: status          
         }
       },
       {
@@ -28,7 +29,7 @@
         href: "#",
         status: {
           tag: {
-            text: "Incomplete",
+            text: status,
             classes: "govuk-tag--blue"
           }
         }
@@ -43,7 +44,7 @@
         href: "#",
         status: {
           tag: {
-            text: "Incomplete",
+            text: status,
             classes: "govuk-tag--blue"
           }
         }
@@ -55,7 +56,7 @@
         href: "#",
         status: {
           tag: {
-            text: "Incomplete",
+            text: status,
             classes: "govuk-tag--blue"
           }
         }
@@ -67,13 +68,13 @@
         href: "#",
         status: {
           tag: {
-            text: "Incomplete",
+            text: status,
             classes: "govuk-tag--blue"
           }
         }
       }
     ]
-  }) }}
+  }) }} 
   
   <form id ="tasklistApply"  method="post" action="/task-list" novalidate="novalidate">
     {{ govukButton({
