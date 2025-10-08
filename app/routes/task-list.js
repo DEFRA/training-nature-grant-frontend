@@ -5,7 +5,7 @@ module.exports = [{
     const firstName = request.yar.get('firstName')
     const familyName = request.yar.get('familyName')
     const email = request.yar.get('email')
-    const status = (firstName && familyName && email) ? 'Complete' : 'InComplete'
+    const status = (firstName && familyName && email) ? 'Complete' : 'Incomplete'
     return h.view('task-list.html', { status })
   }
 },
