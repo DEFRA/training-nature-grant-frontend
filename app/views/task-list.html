@@ -3,23 +3,31 @@
 {% from "govuk/components/button/macro.njk" import govukButton %}
 {% from "govuk/components/task-list/macro.njk" import govukTaskList %}
 
+{% set completedStatus = {
+  text: "Completed"
+} %}
+
+{% set incompleteStatus = {
+  tag: {
+    text: "Incomplete",
+    classes: "govuk-tag--blue"
+  }
+} %}
 {% block twoThirds %}
-<div id="task-list">
+<div id="task-list">  
   <h1 class="govuk-heading-l">{{serviceName}}</h1>
   <p class="govuk-body">
     Task-List
-  </p>
-  {{ govukTaskList({
+  </p>   
+{{ govukTaskList({
     idPrefix: "applicant-details",
     items: [
       {
         title: {
-          text: "Applicant Details"
+          text: "Applicant Details" 
         },
-        href: "/applicant-details",
-        status: {
-          text: "Completed"
-        }
+        href: "/applicant-details",        
+        status:completedStatus if status.applicantDetails else incompleteStatus 
       },
       {
         title: {
@@ -73,7 +81,7 @@
         }
       }
     ]
-  }) }}
+  }) }} 
   
   <form id ="tasklistApply"  method="post" action="/task-list" novalidate="novalidate">
     {{ govukButton({

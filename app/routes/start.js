@@ -1,10 +1,8 @@
 module.exports = {
   method: 'GET',
   path: '/start',
-  handler: {
-    view: {
-      template: 'start',
-      context: { noIndex: false }
-    }
+  handler: (request, h) => {
+    request.yar.reset()
+    return h.view('start.html')
   }
 }
