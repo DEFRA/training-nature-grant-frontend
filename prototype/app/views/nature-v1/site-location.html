@@ -1,0 +1,60 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Main applicant details
+      </h1>
+
+      <form class="form" action="/nature-v1/main-applicant" method="post">
+
+        {{ govukInput({
+          label: {
+            text: "First name"
+          },
+          id: "first-name",
+          name: "firstName"
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Family name"
+          },
+          id: "family-name",
+          name: "familyName"
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Email address"
+          },
+          id: "email-address",
+          name: "emailAddress"
+        }) }}
+
+        {{ govukButton({
+          text: "Continue",
+          name: 'main-applicant',
+          value: 'true'
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
