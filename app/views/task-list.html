@@ -4,90 +4,89 @@
 {% from "govuk/components/task-list/macro.njk" import govukTaskList %}
 
 {% set completedStatus = {
-  text: "Completed"
+text: "Completed"
 } %}
 
 {% set incompleteStatus = {
-  tag: {
-    text: "Incomplete",
-    classes: "govuk-tag--blue"
-  }
+tag: {
+text: "Incomplete",
+classes: "govuk-tag--blue"
+}
 } %}
 {% block twoThirds %}
-<div id="task-list">  
+<div id="task-list">
   <h1 class="govuk-heading-l">{{serviceName}}</h1>
   <p class="govuk-body">
     Task-List
-  </p>   
-{{ govukTaskList({
-    idPrefix: "applicant-details",
-    items: [
-      {
-        title: {
-          text: "Applicant Details" 
-        },
-        href: "/applicant-details",        
-        status:completedStatus if status.applicantDetails else incompleteStatus 
-      },
-      {
-        title: {
-          text: "Registered company details"
-        },
-        href: "#",
-        status: {
-          tag: {
-            text: "Incomplete",
-            classes: "govuk-tag--blue"
-          }
-        }
-      },
-      {
-        title: {
-          text: "Financial history"
-        },
-        hint: {
-          text: "Include 5 years of the company’s relevant financial information"
-        },
-        href: "#",
-        status: {
-          tag: {
-            text: "Incomplete",
-            classes: "govuk-tag--blue"
-          }
-        }
-      },
-      {
-        title: {
-          text: "Business plan"
-        },
-        href: "#",
-        status: {
-          tag: {
-            text: "Incomplete",
-            classes: "govuk-tag--blue"
-          }
-        }
-      },
-      {
-        title: {
-          text: "References"
-        },
-        href: "#",
-        status: {
-          tag: {
-            text: "Incomplete",
-            classes: "govuk-tag--blue"
-          }
-        }
-      }
-    ]
-  }) }} 
-  
-  <form id ="tasklistApply"  method="post" action="/task-list" novalidate="novalidate">
+  </p>
+  {{ govukTaskList({
+  idPrefix: "applicant-details",
+  items: [
+  {
+  title: {
+  text: "Applicant Details"
+  },
+  href: "/applicant-details",
+  status:completedStatus if status.applicantDetails else incompleteStatus
+  },
+  {
+  title: {
+  text: "Example"
+  },
+  href: "/example",
+  status: {
+  tag: {
+  text: "Incomplete",
+  classes: "govuk-tag--blue"
+  }
+  }
+  },
+  {
+  title: {
+  text: "Financial history"
+  },
+  hint: {
+  text: "Include 5 years of the company’s relevant financial information"
+  },
+  href: "#",
+  status: {
+  tag: {
+  text: "Incomplete",
+  classes: "govuk-tag--blue"
+  }
+  }
+  },
+  {
+  title: {
+  text: "Business plan"
+  },
+  href: "#",
+  status: {
+  tag: {
+  text: "Incomplete",
+  classes: "govuk-tag--blue"
+  }
+  }
+  },
+  {
+  title: {
+  text: "References"
+  },
+  href: "#",
+  status: {
+  tag: {
+  text: "Incomplete",
+  classes: "govuk-tag--blue"
+  }
+  }
+  }
+  ]
+  }) }}
+
+  <form id="tasklistApply" method="post" action="/task-list" novalidate="novalidate">
     {{ govukButton({
-      text: "Apply" 
+    text: "Apply"
     }) }}
-  </form>  
+  </form>
 </div>
 {% endblock %}
-
